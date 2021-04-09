@@ -1,0 +1,27 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-sm-6 text-center">
+            <h1 class="mt-5 mb-3 text-center">Current To-Dos</h1>
+            <div class="list-group my-3">
+                {% for todo in to_dos %}
+                        <a href="{% url 'view_to_do' todo.id %}" class="my-auto text-start list-group-item list-group-item-action">
+                            {% if todo.important %}<b>{% endif %}
+                            {{ todo.title}}
+                            {% if todo.important %}</b>{% endif %}
+                        {% if todo.memo %}
+                            - {{ todo.memo }}
+                        {% endif %}
+                        </a>
+                {% endfor %}
+            </div>
+            <a href="{% url 'create_to_do' %}" class="btn btn-secondary">+ New</a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

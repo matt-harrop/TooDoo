@@ -1,0 +1,58 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+
+{% if error %}
+<h3>{{ error }}</h3>
+{% endif %}
+
+{% if message %}
+    <h3 style="color: aqua">{{ message }}</h3>
+{% endif %}
+
+
+
+
+<div class="container-fluid">
+    <div class="h-25"></div>
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-sm-6">
+            <p style="color: red">
+            {{ error }}
+            </p>
+
+            <h1 class="mb-3 text-center display-4">Register</h1>
+            <form method="post">
+                {% csrf_token %}
+{#                {{ form.as_p }}#}
+                <div class="form-group my-2">
+                    <label for="usernameInput">Username</label>
+                    <input type="text" class="form-control" name="username" id="usernameInput" aria-describedby="emailHelp" required>
+                </div>
+                <div class="form-group my-2">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" name="password1" id="exampleInputPassword1" required>
+                </div>
+                <div class="form-group my-2">
+                    <label for="exampleInputPassword1">Confirm Password</label>
+                    <input type="password" class="form-control" name="password2" id="exampleInputPassword1" required>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary my-2" type="submit">Register</button>
+                </div>
+            </form>
+            <hr>
+            <div class="text-center my-4">
+                <p class="d-inline text-secondary">Already have an account?</p>
+                <a class="link-secondary" href="{% url 'login_user' %}">Login</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-sm-6">
+            <h1 class="mt-5 mb-3 text-center">Completed To-Dos</h1>
+            <ul class="list-group my-3">
+                {% for todo in to_dos %}
+                    <li class="list-group-item">
+                        <p class="my-auto text-start">
+                            {% if todo.important %}<b>{% endif %}
+                            {{ todo.title}}
+                            {% if todo.important %}</b>{% endif %}
+{#                        {% if todo.memo %}#}
+{#                            - {{ todo.memo }}#}
+{#                        {% endif %}#}
+                            (Completed: {{ todo.completed_at|date:'M j, Y H:i'}})
+                        </p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

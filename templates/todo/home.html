@@ -1,0 +1,19 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row h-25"></div>
+    <div class="row justify-content-center">
+        <div class="col-sm-6 text-center">
+            <h1 class="text-center mb-4 display-4">Start Simple.</h1>
+            <p>You are a busy human person. You've got a hundred different things you could be doing right now - and dozens that you know you should be!</p>
+            <p>But what are they?</p>
+            <p>You can probably only think of a few off the top of your head, which is partially the cause for that lingering sense of dread that you're forgetting something (and terror that it was something important). So write them down. Keep track of them here. Start a to-do list, and knock them out one at a time.</p>
+            <a class="btn btn-success mt-4" href="{% url 'sign_up_user' %}">Let's Begin</a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

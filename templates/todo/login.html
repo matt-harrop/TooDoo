@@ -1,0 +1,44 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+{% if error %}
+<h3>{{ error }}</h3>
+{% endif %}
+
+
+<div class="container-fluid">
+    <div class="h-25"></div>
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-sm-6">
+            <p style="color: red">
+            {{ error }}
+            </p>
+
+            {% if message %}
+                <h3 style="color: aqua">{{ message }}</h3>
+            {% endif %}
+
+            <h1 class="mb-3 text-center display-4">Login</h1>
+            <form method="post">
+                {% csrf_token %}
+{#                {{ form.as_p }}#}
+                <form method="post">
+                    {% csrf_token %}
+                {#    {{ form.as_p }}#}
+                    <div class="form-group my-2">
+                        <label for="id_username">Username:</label>
+                        <input class="form-control" type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
+                    </div>
+                    <div class="form-group my-2">
+                        <label for="id_password>">Password:</label>
+                        <input class="form-control" type="password" name="password" autocomplete="current-password" required="" id="id_password">
+                    </div>
+                    <button class="btn btn-primary my-2" type="submit">Login</button>
+                </form>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
